@@ -3,1482 +3,539 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Controle Financeiro Completo</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<title>Auto Online | Atendimento</title>
+<meta name="description" content="Atendimento online rápido e personalizado. Entre em contato conosco.">
 
 <style>
-:root{
-    --bg:#f6f5f1;
-    --dark:#101510;
-    --green:#b7e36b;
-    --green-dark:#7ca832;
-    --white:#fff;
-    --muted:#686e68;
-    --border:#dedfd8;
-    --card:#ffffff;
-    --shadow:0 20px 60px rgba(16,21,16,.10);
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-    font-family:"DM Sans",sans-serif;
-    background:var(--bg);
-    color:var(--dark);
-    line-height:1.55;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f7f7f7;
+    color:#1b1b1b;
+    line-height:1.5;
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(1140px,92%);margin:auto}
+
+/* TOPO */
+.topbar{
+    background:#171717;
+    color:#fff;
+    font-size:13px;
+    padding:9px 0;
+}
+.topbar-content{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-button{
-    font:inherit;
-}
-
-.container{
-    width:min(1160px,92%);
-    margin:auto;
-}
-
-/* NAVBAR */
-
+/* MENU */
 header{
+    background:#fff;
     position:sticky;
     top:0;
-    z-index:1000;
-    background:rgba(246,245,241,.92);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid rgba(0,0,0,.06);
+    z-index:100;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
 }
-
 .nav{
-    height:76px;
+    min-height:76px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-}
-
-.logo{
-    font-family:"Manrope";
-    font-size:18px;
-    font-weight:800;
-    letter-spacing:-.6px;
-}
-
-.logo span{
-    color:#7da936;
-}
-
-.menu{
-    display:flex;
-    align-items:center;
-    gap:30px;
-}
-
-.menu a{
-    font-size:14px;
-    font-weight:600;
-    color:#424842;
-    transition:.2s;
-}
-
-.menu a:hover{
-    color:#7ca832;
-}
-
-.nav-button{
-    background:var(--dark);
-    color:white;
-    padding:12px 19px;
-    border-radius:9px;
-    font-weight:700;
-    font-size:14px;
-}
-
-.mobile-menu{
-    display:none;
-    border:0;
-    background:none;
-    font-size:26px;
-    cursor:pointer;
-}
-
-/* HERO */
-
-.hero{
-    padding:90px 0 70px;
-    overflow:hidden;
-}
-
-.hero-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:70px;
-    align-items:center;
-}
-
-.eyebrow{
-    display:inline-flex;
-    padding:7px 12px;
-    border-radius:50px;
-    background:#e5f5c8;
-    color:#587b26;
-    font-size:12px;
-    font-weight:800;
-    letter-spacing:.6px;
-    text-transform:uppercase;
-    margin-bottom:20px;
-}
-
-h1{
-    font-family:"Manrope";
-    font-size:clamp(44px,6vw,72px);
-    line-height:1.02;
-    letter-spacing:-3.5px;
-    margin-bottom:24px;
-}
-
-.hero p{
-    color:#626862;
-    font-size:18px;
-    max-width:590px;
-    margin-bottom:30px;
-}
-
-.buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:12px;
-}
-
-.btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    padding:16px 22px;
-    border-radius:10px;
-    font-weight:800;
-    border:1px solid transparent;
-    cursor:pointer;
-    transition:.25s;
-}
-
-.btn-primary{
-    background:var(--dark);
-    color:white;
-}
-
-.btn-primary:hover{
-    transform:translateY(-2px);
-    background:#252d25;
-}
-
-.btn-secondary{
-    border-color:#d3d5ce;
-    background:white;
-}
-
-.btn-secondary:hover{
-    transform:translateY(-2px);
-}
-
-.trust{
-    display:flex;
-    gap:18px;
-    margin-top:25px;
-    flex-wrap:wrap;
-}
-
-.trust span{
-    font-size:13px;
-    color:#626862;
-}
-
-.trust span::before{
-    content:"✓";
-    color:#78a431;
-    font-weight:900;
-    margin-right:5px;
-}
-
-/* DASHBOARD */
-
-.dashboard{
-    background:#fff;
-    border:1px solid #dedfd8;
-    border-radius:18px;
-    box-shadow:var(--shadow);
-    overflow:hidden;
-    transform:rotate(.5deg);
-}
-
-.excel-top{
-    background:#1d251d;
-    color:white;
-    padding:13px 18px;
-    display:flex;
-    justify-content:space-between;
-    font-size:11px;
-}
-
-.excel-body{
-    padding:22px;
-}
-
-.excel-title{
-    font-size:12px;
-    font-weight:800;
-    margin-bottom:16px;
-}
-
-.metrics{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-}
-
-.metric{
-    padding:14px;
-    background:#f4f6f1;
-    border-radius:9px;
-}
-
-.metric small{
-    display:block;
-    color:#777;
-    font-size:9px;
-    margin-bottom:5px;
-}
-
-.metric strong{
-    font-size:16px;
-}
-
-.chart{
-    height:150px;
-    margin-top:15px;
-    border-radius:10px;
-    background:
-      linear-gradient(to bottom,rgba(0,0,0,.05) 1px,transparent 1px);
-    background-size:100% 30px;
-    position:relative;
-    overflow:hidden;
-}
-
-.chart svg{
-    width:100%;
-    height:100%;
-}
-
-.alerts{
-    margin-top:15px;
-    display:grid;
-    gap:8px;
-}
-
-.alert{
-    padding:9px 12px;
-    background:#f5f7f1;
-    border-radius:7px;
-    font-size:11px;
-}
-
-.alert.warning{
-    background:#fff8dc;
-}
-
-/* STATS */
-
-.stats{
-    padding:25px 0 90px;
-}
-
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    border-top:1px solid var(--border);
-    border-bottom:1px solid var(--border);
-}
-
-.stat{
-    padding:25px 15px;
-    text-align:center;
-    border-right:1px solid var(--border);
-}
-
-.stat:last-child{
-    border-right:0;
-}
-
-.stat strong{
-    display:block;
-    font-family:"Manrope";
-    font-size:28px;
-}
-
-.stat span{
-    color:var(--muted);
-    font-size:13px;
-}
-
-/* SECTION */
-
-section{
-    padding:100px 0;
-}
-
-.section-header{
-    max-width:680px;
-    margin-bottom:50px;
-}
-
-.section-header.center{
-    text-align:center;
-    margin-left:auto;
-    margin-right:auto;
-}
-
-.section-label{
-    font-size:12px;
-    text-transform:uppercase;
-    color:#739c32;
-    font-weight:800;
-    letter-spacing:1.2px;
-    margin-bottom:12px;
-}
-
-h2{
-    font-family:"Manrope";
-    font-size:clamp(34px,4vw,53px);
-    letter-spacing:-2.2px;
-    line-height:1.08;
-}
-
-.section-header p{
-    color:var(--muted);
-    margin-top:18px;
-    font-size:17px;
-}
-
-/* FEATURES */
-
-.features{
-    background:white;
-}
-
-.feature-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.feature{
-    padding:28px;
-    border:1px solid var(--border);
-    border-radius:14px;
-    transition:.25s;
-}
-
-.feature:hover{
-    transform:translateY(-5px);
-    box-shadow:var(--shadow);
-}
-
-.feature-number{
-    color:#7fa93a;
-    font-weight:900;
-    font-size:13px;
-}
-
-.feature h3{
-    margin:18px 0 10px;
-    font-family:"Manrope";
-    font-size:20px;
-}
-
-.feature p{
-    color:var(--muted);
-    font-size:14px;
-}
-
-/* PROCESS */
-
-.process-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
     gap:20px;
 }
+.logo{
+    font-size:26px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+.logo span{color:#d71920}
+nav{
+    display:flex;
+    gap:28px;
+    font-size:14px;
+    font-weight:700;
+}
+nav a:hover{color:#d71920}
+.btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    padding:14px 23px;
+    border-radius:8px;
+    font-weight:800;
+    transition:.2s;
+}
+.btn-red{
+    background:#d71920;
+    color:#fff;
+    box-shadow:0 7px 18px rgba(215,25,32,.22);
+}
+.btn-red:hover{
+    background:#b9141a;
+    transform:translateY(-2px);
+}
+.btn-white{
+    background:#fff;
+    color:#b9141a;
+}
+.btn-white:hover{transform:translateY(-2px)}
 
-.process{
+/* HERO */
+.hero{
+    min-height:590px;
+    display:flex;
+    align-items:center;
+    color:#fff;
+    background:
+      linear-gradient(90deg,rgba(24,5,6,.97),rgba(116,8,14,.88),rgba(215,25,32,.58)),
+      url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=85");
+    background-size:cover;
+    background-position:center;
+}
+.hero-content{max-width:690px}
+.badge{
+    display:inline-block;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.25);
+    padding:8px 15px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+.hero h1{
+    font-size:clamp(40px,6vw,62px);
+    line-height:1.03;
+    letter-spacing:-2px;
+    margin-bottom:20px;
+}
+.hero h1 span{color:#ffb4b7}
+.hero p{
+    color:#f9e9e9;
+    font-size:18px;
+    max-width:620px;
+    margin-bottom:30px;
+}
+.buttons{display:flex;gap:13px;flex-wrap:wrap}
+
+/* SEÇÕES */
+section{padding:75px 0}
+.section-title{
+    text-align:center;
+    max-width:700px;
+    margin:0 auto 45px;
+}
+.section-title .over{
+    color:#d71920;
+    font-size:13px;
+    text-transform:uppercase;
+    font-weight:900;
+    letter-spacing:1px;
+}
+.section-title h2{
+    font-size:36px;
+    margin:8px 0 10px;
+}
+.section-title p{color:#697386}
+
+/* BENEFÍCIOS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+.card{
     background:#fff;
     padding:30px;
-    border-radius:15px;
-    border:1px solid var(--border);
+    border-radius:14px;
+    border:1px solid #e7e7e7;
+    transition:.25s;
 }
-
-.process-number{
-    width:42px;
-    height:42px;
-    border-radius:50%;
-    background:var(--green);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:900;
-    margin-bottom:22px;
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(0,0,0,.09);
 }
-
-/* VIDEO */
-
-.video-section{
-    background:#101510;
-    color:white;
-}
-
-.video-section .section-header p{
-    color:#b7bdb7;
-}
-
-.video{
-    max-width:850px;
-    margin:auto;
-    aspect-ratio:16/9;
-    border-radius:18px;
-    overflow:hidden;
-    background:#202620;
-    box-shadow:0 30px 70px rgba(0,0,0,.3);
-}
-
-.video iframe{
-    width:100%;
-    height:100%;
-    border:0;
-}
-
-/* AUDIENCE */
-
-.audience{
+.icon{
+    width:54px;
+    height:54px;
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:50px;
-    align-items:center;
+    place-items:center;
+    border-radius:12px;
+    background:#fff0f0;
+    color:#d71920;
+    font-size:25px;
+    margin-bottom:18px;
 }
+.card h3{margin-bottom:8px;font-size:19px}
+.card p{color:#6b7280;font-size:14px}
 
-.check-list{
+/* BANNER */
+.banner{
+    background:linear-gradient(120deg,#a80f16,#d71920 60%,#ef3b40);
+    color:#fff;
+}
+.banner-grid{
     display:grid;
-    gap:16px;
-}
-
-.check{
-    display:flex;
-    gap:13px;
-    align-items:flex-start;
-    padding:17px;
-    border-radius:10px;
-    background:white;
-    border:1px solid var(--border);
-}
-
-.check b{
-    color:#71972f;
-}
-
-/* OFFER */
-
-.offer{
-    background:#eaf7d6;
-}
-
-.offer-box{
-    background:#fff;
-    border:1px solid #d7e2c6;
-    border-radius:22px;
-    padding:55px;
-    display:grid;
-    grid-template-columns:1fr auto;
+    grid-template-columns:1.3fr .7fr;
     gap:40px;
     align-items:center;
-    box-shadow:var(--shadow);
 }
-
-.price{
-    font-family:"Manrope";
-    font-size:58px;
-    font-weight:800;
-    letter-spacing:-3px;
-    margin:10px 0;
+.banner h2{
+    font-size:40px;
+    line-height:1.1;
+    margin-bottom:15px;
 }
-
-.price small{
-    font-family:"DM Sans";
+.banner p{
+    color:#ffe7e7;
+    margin-bottom:25px;
+    max-width:650px;
+}
+.contact-box{
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:16px;
+    padding:28px;
+}
+.contact-box strong{
+    display:block;
+    font-size:22px;
+    margin-bottom:8px;
+}
+.contact-box span{
+    color:#ffe8e8;
     font-size:14px;
-    font-weight:500;
-    color:#777;
-    letter-spacing:0;
 }
 
-.offer-list{
-    margin-top:20px;
+/* COMO FUNCIONA */
+.steps{
     display:grid;
-    gap:8px;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
 }
-
-.offer-list span{
-    font-size:14px;
-}
-
-.offer-list span::before{
-    content:"✓";
-    color:#78a431;
-    font-weight:900;
-    margin-right:8px;
-}
-
-.buy{
-    min-width:250px;
+.step{
     text-align:center;
+    padding:25px;
 }
+.number{
+    width:55px;
+    height:55px;
+    margin:0 auto 16px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:#d71920;
+    color:#fff;
+    font-weight:900;
+    font-size:19px;
+}
+.step h3{margin-bottom:7px}
+.step p{color:#697386;font-size:14px}
 
-/* FAQ */
-
-.faq{
-    max-width:850px;
+/* CONTATO */
+.contact{
+    background:#fff;
+}
+.contact-inner{
+    max-width:900px;
     margin:auto;
+    text-align:center;
+    background:#171717;
+    color:#fff;
+    border-radius:20px;
+    padding:55px 30px;
 }
-
-details{
-    background:white;
-    border:1px solid var(--border);
-    border-radius:10px;
-    margin-bottom:10px;
-    padding:0 20px;
+.contact-inner h2{
+    font-size:38px;
+    margin-bottom:12px;
 }
-
-summary{
-    cursor:pointer;
-    list-style:none;
-    padding:20px 0;
+.contact-inner p{
+    color:#d1d5db;
+    max-width:600px;
+    margin:0 auto 25px;
+}
+.phone{
+    display:block;
+    color:#ff8c90;
+    font-size:19px;
     font-weight:800;
+    margin-top:18px;
 }
 
-summary::-webkit-details-marker{
-    display:none;
-}
-
-details p{
-    padding:0 0 20px;
-    color:var(--muted);
-}
-
-/* FOOTER */
-
+/* RODAPÉ */
 footer{
-    background:#101510;
-    color:white;
-    padding:55px 0 25px;
+    background:#0d0d0d;
+    color:#aeb4bf;
+    padding:32px 0;
 }
-
-.footer-grid{
+.footer{
     display:flex;
     justify-content:space-between;
-    gap:30px;
-    padding-bottom:40px;
-}
-
-.footer-links{
-    display:flex;
-    gap:25px;
+    gap:20px;
     flex-wrap:wrap;
-}
-
-.footer-links a{
-    color:#bdc4bd;
     font-size:13px;
 }
+.footer strong{color:#fff}
 
-.copyright{
-    border-top:1px solid #303730;
-    padding-top:22px;
-    color:#7f887f;
-    font-size:12px;
-}
-
-/* MODAL */
-
-.modal{
+/* WHATSAPP */
+.whatsapp{
     position:fixed;
-    inset:0;
-    background:rgba(0,0,0,.7);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    z-index:2000;
-    padding:20px;
+    right:20px;
+    bottom:20px;
+    width:59px;
+    height:59px;
+    border-radius:50%;
+    background:#25d366;
+    color:#fff;
+    display:grid;
+    place-items:center;
+    font-size:28px;
+    box-shadow:0 8px 25px rgba(0,0,0,.25);
+    z-index:999;
 }
+.whatsapp:hover{transform:scale(1.07)}
 
-.modal.active{
-    display:flex;
+/* MOBILE */
+@media(max-width:800px){
+    nav{display:none}
+    .hero{min-height:600px}
+    .cards,.steps,.banner-grid{grid-template-columns:1fr}
+    .banner-grid{gap:25px}
 }
-
-.modal-content{
-    background:white;
-    max-width:700px;
-    width:100%;
-    padding:30px;
-    border-radius:18px;
-    position:relative;
-}
-
-.close{
-    position:absolute;
-    right:18px;
-    top:15px;
-    border:0;
-    background:none;
-    font-size:25px;
-    cursor:pointer;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-    .menu{
-        display:none;
-        position:absolute;
-        top:76px;
-        left:0;
-        right:0;
-        background:#f6f5f1;
-        padding:20px;
-        flex-direction:column;
-        border-bottom:1px solid var(--border);
-    }
-
-    .menu.active{
-        display:flex;
-    }
-
-    .mobile-menu{
-        display:block;
-    }
-
-    .hero-grid,
-    .audience,
-    .offer-box{
-        grid-template-columns:1fr;
-    }
-
-    .hero{
-        padding-top:60px;
-    }
-
-    .feature-grid,
-    .process-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .stats-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .stat:nth-child(2){
-        border-right:0;
-    }
-
-    .stat:nth-child(-n+2){
-        border-bottom:1px solid var(--border);
-    }
-
-    .offer-box{
-        padding:35px;
-    }
-
-    .buy{
-        min-width:0;
-    }
-}
-
 @media(max-width:600px){
-
-    h1{
-        letter-spacing:-2px;
-    }
-
-    .hero{
-        padding:50px 0;
-    }
-
-    section{
-        padding:70px 0;
-    }
-
-    .feature-grid,
-    .process-grid,
-    .metrics{
-        grid-template-columns:1fr;
-    }
-
-    .stats-grid{
-        grid-template-columns:1fr;
-    }
-
-    .stat{
-        border-right:0;
-        border-bottom:1px solid var(--border);
-    }
-
-    .stat:last-child{
-        border-bottom:0;
-    }
-
-    .dashboard{
-        transform:none;
-    }
-
-    .buttons{
-        flex-direction:column;
-    }
-
-    .btn{
-        width:100%;
-    }
-
-    .offer-box{
-        padding:28px;
-    }
-
-    .price{
-        font-size:45px;
-    }
+    .topbar{display:none}
+    section{padding:55px 0}
+    .nav{min-height:68px}
+    .logo{font-size:22px}
+    .nav>.btn{padding:10px 14px;font-size:12px}
+    .hero h1{font-size:41px}
+    .hero p{font-size:16px}
+    .section-title h2{font-size:29px}
+    .banner h2{font-size:31px}
+    .contact-inner{padding:40px 20px}
+    .contact-inner h2{font-size:30px}
 }
 </style>
 </head>
 
 <body>
 
+<div class="topbar">
+    <div class="container topbar-content">
+        <span>📞 Atendimento online</span>
+        <span>🕐 Segunda a sábado • 08:00 às 19:00</span>
+    </div>
+</div>
+
 <header>
     <div class="container nav">
+        <a href="#inicio" class="logo">AUTO <span>ONLINE</span></a>
 
-        <a href="#inicio" class="logo">
-            GENIUS <span>FINANÇAS</span>
-        </a>
-
-        <nav class="menu" id="menu">
-            <a href="#recursos">Recursos</a>
-            <a href="#como-funciona">Como funciona</a>
-            <a href="#faq">Dúvidas</a>
-            <a href="#oferta">Oferta</a>
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#servicos">Serviços</a>
+            <a href="#vantagens">Vantagens</a>
+            <a href="#contato">Contato</a>
         </nav>
 
-        <a href="#oferta" class="nav-button">
-            Quero a planilha
+        <a class="btn btn-red" href="https://wa.me/5513996354752?text=Olá!%20Gostaria%20de%20entrar%20em%20contato.">
+            Entrar em contato
         </a>
-
-        <button class="mobile-menu" onclick="toggleMenu()">
-            ☰
-        </button>
-
     </div>
 </header>
 
+<main>
 
-<main id="inicio">
+<section class="hero" id="inicio">
+    <div class="container">
+        <div class="hero-content">
+            <span class="badge">🚗 ATENDIMENTO ONLINE</span>
 
-<!-- HERO -->
+            <h1>
+                Soluções para seu veículo
+                <span>de forma simples.</span>
+            </h1>
 
-<section class="hero">
-<div class="container hero-grid">
+            <p>
+                Conte com um atendimento rápido, direto e personalizado.
+                Nossa equipe está pronta para orientar você.
+            </p>
 
-    <div>
+            <div class="buttons">
+                <a class="btn btn-red" href="https://wa.me/5513996354752?text=Olá!%20Gostaria%20de%20entrar%20em%20contato.">
+                    💬 Entrar em contato
+                </a>
 
-        <span class="eyebrow">
-            Controle financeiro completo
-        </span>
+                <a class="btn btn-white" href="#servicos">
+                    Conheça nossos serviços
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
-        <h1>
-            Seu dinheiro precisa de um plano.
-        </h1>
+<section id="servicos">
+    <div class="container">
+        <div class="section-title">
+            <div class="over">Nossos serviços</div>
+            <h2>Atendimento pensado para você</h2>
+            <p>
+                Tenha praticidade para tirar dúvidas e receber
+                orientação diretamente com nossa equipe.
+            </p>
+        </div>
 
-        <p>
-            Organize orçamento, investimentos, metas e dívidas em
-            um sistema visual criado para transformar números
-            espalhados em decisões mais claras.
-        </p>
+        <div class="cards">
 
-        <div class="buttons">
+            <div class="card">
+                <div class="icon">🚘</div>
+                <h3>Atendimento personalizado</h3>
+                <p>
+                    Entendemos sua necessidade e apresentamos
+                    as informações de maneira clara.
+                </p>
+            </div>
 
-            <a href="#oferta" class="btn btn-primary">
-                Quero organizar minhas finanças →
+            <div class="card">
+                <div class="icon">⚡</div>
+                <h3>Agilidade no atendimento</h3>
+                <p>
+                    Entre em contato online e fale diretamente
+                    com nossa equipe.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🛡️</div>
+                <h3>Transparência</h3>
+                <p>
+                    Comunicação objetiva e informações claras
+                    durante todo o atendimento.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="banner" id="vantagens">
+    <div class="container banner-grid">
+
+        <div>
+            <h2>
+                Precisa de atendimento?
+                Estamos prontos para ajudar.
+            </h2>
+
+            <p>
+                Clique no botão abaixo e fale diretamente
+                com nossa equipe pelo WhatsApp.
+            </p>
+
+            <a class="btn btn-white"
+               href="https://wa.me/5513996354752?text=Olá!%20Gostaria%20de%20receber%20atendimento.">
+                💬 Falar pelo WhatsApp
             </a>
-
-            <a href="#recursos" class="btn btn-secondary">
-                Ver por dentro ↓
-            </a>
-
         </div>
 
-        <div class="trust">
-            <span>Uso simples</span>
-            <span>Fórmulas protegidas</span>
-            <span>Acesso imediato</span>
+        <div class="contact-box">
+            <strong>Atendimento direto</strong>
+            <span>
+                Sem formulário e sem necessidade de cadastro.
+                Basta clicar e iniciar a conversa.
+            </span>
         </div>
 
     </div>
-
-
-    <!-- DASHBOARD VISUAL -->
-
-    <div class="dashboard">
-
-        <div class="excel-top">
-            <span>Controle_Financeiro.xlsx</span>
-            <span>Excel</span>
-        </div>
-
-        <div class="excel-body">
-
-            <div class="excel-title">
-                PAINEL EXECUTIVO
-            </div>
-
-            <div class="metrics">
-
-                <div class="metric">
-                    <small>PATRIMÔNIO LÍQUIDO</small>
-                    <strong>R$ 1.248.695</strong>
-                </div>
-
-                <div class="metric">
-                    <small>TAXA DE POUPANÇA</small>
-                    <strong>64,2%</strong>
-                </div>
-
-                <div class="metric">
-                    <small>RENDA PASSIVA</small>
-                    <strong>R$ 1.340</strong>
-                </div>
-
-            </div>
-
-            <div class="chart">
-
-                <svg viewBox="0 0 500 150" preserveAspectRatio="none">
-
-                    <polyline
-                        points="0,125 55,110 105,115 160,80 215,95 270,62 330,70 390,38 450,48 500,18"
-                        fill="none"
-                        stroke="#7ca832"
-                        stroke-width="4"
-                    />
-
-                    <polyline
-                        points="0,125 55,110 105,115 160,80 215,95 270,62 330,70 390,38 450,48 500,18 500,150 0,150"
-                        fill="rgba(124,168,50,.10)"
-                        stroke="none"
-                    />
-
-                </svg>
-
-            </div>
-
-            <div class="alerts">
-
-                <div class="alert">
-                    ✓ Poupança dentro da meta
-                </div>
-
-                <div class="alert warning">
-                    ! Reforce sua reserva
-                </div>
-
-                <div class="alert">
-                    → Rebalanceie 3 posições
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
 </section>
-
-
-<!-- STATS -->
-
-<div class="stats">
-
-<div class="container stats-grid">
-
-    <div class="stat">
-        <strong>15</strong>
-        <span>abas integradas</span>
-    </div>
-
-    <div class="stat">
-        <strong>30</strong>
-        <span>anos de projeção</span>
-    </div>
-
-    <div class="stat">
-        <strong>3</strong>
-        <span>cenários financeiros</span>
-    </div>
-
-    <div class="stat">
-        <strong>1</strong>
-        <span>visão completa</span>
-    </div>
-
-</div>
-
-</div>
-
-
-<!-- RECURSOS -->
-
-<section class="features" id="recursos">
-
-<div class="container">
-
-<div class="section-header">
-
-    <div class="section-label">
-        Tudo conectado
-    </div>
-
-    <h2>
-        Da conta do mês à liberdade financeira.
-    </h2>
-
-    <p>
-        Você alimenta os dados. O sistema organiza as informações
-        e transforma números soltos em uma visão mais clara.
-    </p>
-
-</div>
-
-
-<div class="feature-grid">
-
-    <article class="feature">
-        <span class="feature-number">01</span>
-        <h3>Painel executivo</h3>
-        <p>
-            Veja patrimônio, renda passiva, taxa de poupança
-            e progresso das suas metas em uma única tela.
-        </p>
-    </article>
-
-    <article class="feature">
-        <span class="feature-number">02</span>
-        <h3>Orçamento sem sustos</h3>
-        <p>
-            Compare o planejado com o realizado e identifique
-            rapidamente onde o orçamento saiu do controle.
-        </p>
-    </article>
-
-    <article class="feature">
-        <span class="feature-number">03</span>
-        <h3>Carteira no alvo</h3>
-        <p>
-            Acompanhe posições, resultados, pesos e distribuição
-            dos seus investimentos.
-        </p>
-    </article>
-
-    <article class="feature">
-        <span class="feature-number">04</span>
-        <h3>Projeção de 30 anos</h3>
-        <p>
-            Simule cenários conservador, base e otimista para
-            visualizar diferentes possibilidades.
-        </p>
-    </article>
-
-    <article class="feature">
-        <span class="feature-number">05</span>
-        <h3>Metas com prazo</h3>
-        <p>
-            Transforme objetivos financeiros em metas mensais
-            e acompanhe seu progresso.
-        </p>
-    </article>
-
-    <article class="feature">
-        <span class="feature-number">06</span>
-        <h3>Estratégia para dívidas</h3>
-        <p>
-            Organize suas dívidas e compare estratégias para
-            priorizar os pagamentos.
-        </p>
-    </article>
-
-</div>
-
-</div>
-</section>
-
-
-<!-- COMO FUNCIONA -->
-
-<section id="como-funciona">
-
-<div class="container">
-
-<div class="section-header center">
-
-    <div class="section-label">
-        Feita para usar
-    </div>
-
-    <h2>
-        Você não precisa entender de fórmulas.
-    </h2>
-
-    <p>
-        A estrutura foi pensada para você preencher os dados
-        e acompanhar os resultados de maneira simples.
-    </p>
-
-</div>
-
-
-<div class="process-grid">
-
-    <article class="process">
-
-        <div class="process-number">1</div>
-
-        <h3>Personalize</h3>
-
-        <p>
-            Defina renda, custos, aportes, metas e premissas
-            financeiras.
-        </p>
-
-    </article>
-
-
-    <article class="process">
-
-        <div class="process-number">2</div>
-
-        <h3>Registre</h3>
-
-        <p>
-            Lance receitas, despesas, investimentos, proventos
-            e dívidas.
-        </p>
-
-    </article>
-
-
-    <article class="process">
-
-        <div class="process-number">3</div>
-
-        <h3>Decida</h3>
-
-        <p>
-            Consulte o painel e use os indicadores para saber
-            onde concentrar sua atenção.
-        </p>
-
-    </article>
-
-</div>
-
-</div>
-</section>
-
-
-<!-- VIDEO -->
-
-<section class="video-section">
-
-<div class="container">
-
-<div class="section-header center">
-
-    <div class="section-label">
-        Veja em ação
-    </div>
-
-    <h2>
-        O fim da bagunça na sua vida financeira.
-    </h2>
-
-    <p>
-        Veja uma apresentação rápida do conceito e da utilização
-        da ferramenta.
-    </p>
-
-</div>
-
-<div class="video">
-
-    <iframe
-        src="https://www.youtube-nocookie.com/embed/"
-        title="Apresentação"
-        allowfullscreen>
-    </iframe>
-
-</div>
-
-</div>
-</section>
-
-
-<!-- PARA QUEM É -->
 
 <section>
+    <div class="container">
 
-<div class="container audience">
-
-    <div>
-
-        <div class="section-label">
-            Para quem é
+        <div class="section-title">
+            <div class="over">Como funciona</div>
+            <h2>É simples entrar em contato</h2>
+            <p>
+                Você pode iniciar seu atendimento em poucos segundos.
+            </p>
         </div>
 
-        <h2>
-            Para quem cansou de administrar a vida financeira no improviso.
-        </h2>
+        <div class="steps">
 
+            <div class="step">
+                <div class="number">1</div>
+                <h3>Clique no botão</h3>
+                <p>
+                    Escolha qualquer botão de contato disponível
+                    na página.
+                </p>
+            </div>
+
+            <div class="step">
+                <div class="number">2</div>
+                <h3>Abra o WhatsApp</h3>
+                <p>
+                    Você será direcionado diretamente para
+                    nossa conversa.
+                </p>
+            </div>
+
+            <div class="step">
+                <div class="number">3</div>
+                <h3>Fale conosco</h3>
+                <p>
+                    Envie sua dúvida e aguarde o atendimento
+                    da nossa equipe.
+                </p>
+            </div>
+
+        </div>
     </div>
-
-
-    <div class="check-list">
-
-        <div class="check">
-            <b>✓</b>
-            <span>
-                Quer enxergar o patrimônio inteiro em um só lugar.
-            </span>
-        </div>
-
-        <div class="check">
-            <b>✓</b>
-            <span>
-                Investe, mas ainda não acompanha sua distribuição.
-            </span>
-        </div>
-
-        <div class="check">
-            <b>✓</b>
-            <span>
-                Tem metas grandes e quer organizar os aportes.
-            </span>
-        </div>
-
-        <div class="check">
-            <b>✓</b>
-            <span>
-                Quer organizar dívidas e acompanhar sua evolução.
-            </span>
-        </div>
-
-    </div>
-
-</div>
 </section>
 
+<section class="contact" id="contato">
+    <div class="container">
 
-<!-- OFERTA -->
+        <div class="contact-inner">
 
-<section class="offer" id="oferta">
+            <h2>Fale conosco</h2>
 
-<div class="container">
+            <p>
+                Clique no botão abaixo para iniciar seu atendimento
+                diretamente pelo WhatsApp.
+            </p>
 
-<div class="offer-box">
+            <a class="btn btn-red"
+               href="https://wa.me/5513996354752?text=Olá!%20Gostaria%20de%20entrar%20em%20contato.">
+                💬 Entrar em contato agora
+            </a>
 
-    <div>
-
-        <div class="section-label">
-            Acesso imediato
-        </div>
-
-        <h2>
-            Sua vida financeira, organizada.
-        </h2>
-
-        <div class="price">
-            R$ 97
-            <small>pagamento único</small>
-        </div>
-
-        <div class="offer-list">
-
-            <span>Painel financeiro</span>
-            <span>Fluxo de receitas e despesas</span>
-            <span>Orçamento</span>
-            <span>Carteira e alocação</span>
-            <span>Proventos</span>
-            <span>Metas financeiras</span>
-            <span>Projeções</span>
-            <span>Controle de dívidas</span>
-            <span>Guia de utilização</span>
+            <span class="phone">
+                WhatsApp: (13) 99635-4752
+            </span>
 
         </div>
 
     </div>
-
-
-    <div class="buy">
-
-        <a
-            class="btn btn-primary"
-            style="width:100%;"
-            href="https://pay.hotmart.com/R107479394Q"
-            target="_blank"
-            rel="noopener noreferrer">
-
-            Comprar agora →
-
-        </a>
-
-        <p style="font-size:12px;color:#777;margin-top:12px;">
-            Pagamento seguro pela Hotmart.
-        </p>
-
-    </div>
-
-</div>
-
-</div>
-</section>
-
-
-<!-- FAQ -->
-
-<section id="faq">
-
-<div class="container">
-
-<div class="section-header center">
-
-    <div class="section-label">
-        Dúvidas frequentes
-    </div>
-
-    <h2>
-        Antes de começar.
-    </h2>
-
-</div>
-
-
-<div class="faq">
-
-    <details>
-        <summary>Preciso saber usar Excel?</summary>
-
-        <p>
-            Não. A estrutura foi pensada para facilitar o preenchimento
-            e possui áreas específicas para inserir suas informações.
-        </p>
-    </details>
-
-
-    <details>
-        <summary>As fórmulas podem ser apagadas?</summary>
-
-        <p>
-            A versão original utiliza proteção para reduzir alterações
-            acidentais nas fórmulas.
-        </p>
-    </details>
-
-
-    <details>
-        <summary>A planilha busca cotações automaticamente?</summary>
-
-        <p>
-            Não. A proposta é manter a ferramenta simples e sem
-            depender de serviços externos.
-        </p>
-    </details>
-
-
-    <details>
-        <summary>Funciona no Google Planilhas?</summary>
-
-        <p>
-            Esta versão foi pensada para Microsoft Excel. Outros
-            aplicativos podem alterar fórmulas ou recursos.
-        </p>
-    </details>
-
-
-    <details>
-        <summary>É uma recomendação de investimento?</summary>
-
-        <p>
-            Não. Uma ferramenta de organização financeira não substitui
-            orientação profissional e projeções não representam garantia
-            de resultados.
-        </p>
-    </details>
-
-</div>
-
-</div>
 </section>
 
 </main>
 
-
-<!-- FOOTER -->
-
 <footer>
-
-<div class="container">
-
-<div class="footer-grid">
-
-    <div>
-        <div class="logo">
-            GENIUS <span>FINANÇAS</span>
-        </div>
-
-        <p style="color:#8d958d;font-size:13px;margin-top:10px;">
-            Decisões melhores começam com números claros.
-        </p>
+    <div class="container footer">
+        <span>© 2026 <strong>Auto Online</strong>. Todos os direitos reservados.</span>
+        <span>Atendimento online</span>
     </div>
-
-
-    <div class="footer-links">
-
-        <a href="#recursos">Recursos</a>
-
-        <a href="#como-funciona">Como funciona</a>
-
-        <a href="#faq">Dúvidas</a>
-
-        <a href="#oferta">Comprar</a>
-
-    </div>
-
-</div>
-
-
-<div class="copyright">
-    © 2026 · Produto digital · Uso pessoal
-</div>
-
-</div>
-
 </footer>
 
-
-<script>
-
-/* MENU MOBILE */
-
-function toggleMenu(){
-
-    const menu = document.getElementById("menu");
-
-    menu.classList.toggle("active");
-
-}
-
-
-/* FECHA MENU AO CLICAR */
-
-document.querySelectorAll(".menu a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        document.getElementById("menu").classList.remove("active");
-
-    });
-
-});
-
-
-/* ANIMAÇÃO AO APARECER */
-
-const observer = new IntersectionObserver(
-
-    entries => {
-
-        entries.forEach(entry => {
-
-            if(entry.isIntersecting){
-
-                entry.target.style.opacity = "1";
-                entry.target.style.transform = "translateY(0)";
-
-            }
-
-        });
-
-    },
-
-    {threshold:.12}
-
-);
-
-
-document.querySelectorAll(
-    ".feature, .process, .check, .offer-box"
-).forEach(element => {
-
-    element.style.opacity = "0";
-    element.style.transform = "translateY(20px)";
-    element.style.transition = "opacity .6s ease, transform .6s ease";
-
-    observer.observe(element);
-
-});
-
-
-/* FECHA DETAILS AO ABRIR OUTRO */
-
-const details = document.querySelectorAll("details");
-
-details.forEach(item => {
-
-    item.addEventListener("toggle", () => {
-
-        if(item.open){
-
-            details.forEach(other => {
-
-                if(other !== item){
-
-                    other.removeAttribute("open");
-
-                }
-
-            });
-
-        }
-
-    });
-
-});
-
-</script>
+<a class="whatsapp"
+   href="https://wa.me/5513996354752?text=Olá!%20Gostaria%20de%20entrar%20em%20contato."
+   aria-label="Entrar em contato pelo WhatsApp">
+   ☎
+</a>
 
 </body>
 </html>
