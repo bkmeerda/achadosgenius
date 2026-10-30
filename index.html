@@ -1,539 +1,289 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Auto Online | Atendimento</title>
-<meta name="description" content="Aluguel diário, semanal e mensal. Entre em contato conosco.">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MeuKovi - Atendimento</title>
+    <!-- Ícones do Font Awesome para o símbolo do WhatsApp -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:#f7f7f7;
-    color:#1b1b1b;
-    line-height:1.5;
-}
-a{text-decoration:none;color:inherit}
-.container{width:min(1140px,92%);margin:auto}
+        body {
+            background-color: #ffffff;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
 
-/* TOPO */
-.topbar{
-    background:#171717;
-    color:#fff;
-    font-size:13px;
-    padding:9px 0;
-}
-.topbar-content{
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-    flex-wrap:wrap;
-}
+        /* Topbar / Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            background-color: #ffffff;
+            position: relative;
+            z-index: 10;
+        }
 
-/* MENU */
-header{
-    background:#fff;
-    position:sticky;
-    top:0;
-    z-index:100;
-    box-shadow:0 3px 15px rgba(0,0,0,.08);
-}
-.nav{
-    min-height:76px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px;
-}
-.logo{
-    font-size:26px;
-    font-weight:900;
-    letter-spacing:-1px;
-}
-.logo span{color:#d71920}
-nav{
-    display:flex;
-    gap:28px;
-    font-size:14px;
-    font-weight:700;
-}
-nav a:hover{color:#d71920}
-.btn{
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-    padding:14px 23px;
-    border-radius:8px;
-    font-weight:800;
-    transition:.2s;
-}
-.btn-red{
-    background:#d71920;
-    color:#fff;
-    box-shadow:0 7px 18px rgba(215,25,32,.22);
-}
-.btn-red:hover{
-    background:#b9141a;
-    transform:translateY(-2px);
-}
-.btn-white{
-    background:#fff;
-    color:#b9141a;
-}
-.btn-white:hover{transform:translateY(-2px)}
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-/* HERO */
-.hero{
-    min-height:590px;
-    display:flex;
-    align-items:center;
-    color:#fff;
-    background:
-      linear-gradient(90deg,rgba(24,5,6,.97),rgba(116,8,14,.88),rgba(215,25,32,.58)),
-      url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1800&q=85");
-    background-size:cover;
-    background-position:center;
-}
-.hero-content{max-width:690px}
-.badge{
-    display:inline-block;
-    background:rgba(255,255,255,.12);
-    border:1px solid rgba(255,255,255,.25);
-    padding:8px 15px;
-    border-radius:30px;
-    font-size:13px;
-    font-weight:700;
-    margin-bottom:20px;
-}
-.hero h1{
-    font-size:clamp(40px,6vw,62px);
-    line-height:1.03;
-    letter-spacing:-2px;
-    margin-bottom:20px;
-}
-.hero h1 span{color:#ffb4b7}
-.hero p{
-    color:#f9e9e9;
-    font-size:18px;
-    max-width:620px;
-    margin-bottom:30px;
-}
-.buttons{display:flex;gap:13px;flex-wrap:wrap}
+        .logo-icon {
+            color: #e41334;
+            font-size: 20px;
+        }
 
-/* SEÇÕES */
-section{padding:75px 0}
-.section-title{
-    text-align:center;
-    max-width:700px;
-    margin:0 auto 45px;
-}
-.section-title .over{
-    color:#d71920;
-    font-size:13px;
-    text-transform:uppercase;
-    font-weight:900;
-    letter-spacing:1px;
-}
-.section-title h2{
-    font-size:36px;
-    margin:8px 0 10px;
-}
-.section-title p{color:#697386}
+        .logo-text {
+            color: #e41334;
+            font-weight: 700;
+            font-size: 24px;
+            letter-spacing: -0.5px;
+        }
 
-/* BENEFÍCIOS */
-.cards{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-}
-.card{
-    background:#fff;
-    padding:30px;
-    border-radius:14px;
-    border:1px solid #e7e7e7;
-    transition:.25s;
-}
-.card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 15px 35px rgba(0,0,0,.09);
-}
-.icon{
-    width:54px;
-    height:54px;
-    display:grid;
-    place-items:center;
-    border-radius:12px;
-    background:#fff0f0;
-    color:#d71920;
-    font-size:25px;
-    margin-bottom:18px;
-}
-.card h3{margin-bottom:8px;font-size:19px}
-.card p{color:#6b7280;font-size:14px}
+        .btn-atendente {
+            background-color: #e41334;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: opacity 0.2s;
+        }
 
-/* BANNER */
-.banner{
-    background:linear-gradient(120deg,#a80f16,#d71920 60%,#ef3b40);
-    color:#fff;
-}
-.banner-grid{
-    display:grid;
-    grid-template-columns:1.3fr .7fr;
-    gap:40px;
-    align-items:center;
-}
-.banner h2{
-    font-size:40px;
-    line-height:1.1;
-    margin-bottom:15px;
-}
-.banner p{
-    color:#ffe7e7;
-    margin-bottom:25px;
-    max-width:650px;
-}
-.contact-box{
-    background:rgba(255,255,255,.12);
-    border:1px solid rgba(255,255,255,.2);
-    border-radius:16px;
-    padding:28px;
-}
-.contact-box strong{
-    display:block;
-    font-size:22px;
-    margin-bottom:8px;
-}
-.contact-box span{
-    color:#ffe8e8;
-    font-size:14px;
-}
+        .btn-atendente:hover {
+            opacity: 0.9;
+        }
 
-/* COMO FUNCIONA */
-.steps{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-}
-.step{
-    text-align:center;
-    padding:25px;
-}
-.number{
-    width:55px;
-    height:55px;
-    margin:0 auto 16px;
-    border-radius:50%;
-    display:grid;
-    place-items:center;
-    background:#d71920;
-    color:#fff;
-    font-weight:900;
-    font-size:19px;
-}
-.step h3{margin-bottom:7px}
-.step p{color:#697386;font-size:14px}
+        /* Hero Section */
+        .hero {
+            background-color: #e41334;
+            position: relative;
+            padding: 60px 24px 140px 24px;
+            text-align: center;
+            border-top-left-radius: 50% 40px;
+            border-top-right-radius: 50% 40px;
+        }
 
-/* CONTATO */
-.contact{
-    background:#fff;
-}
-.contact-inner{
-    max-width:900px;
-    margin:auto;
-    text-align:center;
-    background:#171717;
-    color:#fff;
-    border-radius:20px;
-    padding:55px 30px;
-}
-.contact-inner h2{
-    font-size:38px;
-    margin-bottom:12px;
-}
-.contact-inner p{
-    color:#d1d5db;
-    max-width:600px;
-    margin:0 auto 25px;
-}
-.phone{
-    display:block;
-    color:#ff8c90;
-    font-size:19px;
-    font-weight:800;
-    margin-top:18px;
-}
+        .portal-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
 
-/* RODAPÉ */
-footer{
-    background:#0d0d0d;
-    color:#aeb4bf;
-    padding:32px 0;
-}
-.footer{
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-    flex-wrap:wrap;
-    font-size:13px;
-}
-.footer strong{color:#fff}
+        .portal-badge::before {
+            content: "●";
+            margin-right: 6px;
+            color: #ffffff;
+        }
 
-/* WHATSAPP */
-.whatsapp{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    width:59px;
-    height:59px;
-    border-radius:50%;
-    background:#25d366;
-    color:#fff;
-    display:grid;
-    place-items:center;
-    font-size:28px;
-    box-shadow:0 8px 25px rgba(0,0,0,.25);
-    z-index:999;
-}
-.whatsapp:hover{transform:scale(1.07)}
+        .hero h1 {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            max-width: 340px;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-/* MOBILE */
-@media(max-width:800px){
-    nav{display:none}
-    .hero{min-height:600px}
-    .cards,.steps,.banner-grid{grid-template-columns:1fr}
-    .banner-grid{gap:25px}
-}
-@media(max-width:600px){
-    .topbar{display:none}
-    section{padding:55px 0}
-    .nav{min-height:68px}
-    .logo{font-size:22px}
-    .nav>.btn{padding:10px 14px;font-size:12px}
-    .hero h1{font-size:41px}
-    .hero p{font-size:16px}
-    .section-title h2{font-size:29px}
-    .banner h2{font-size:31px}
-    .contact-inner{padding:40px 20px}
-    .contact-inner h2{font-size:30px}
-}
-</style>
+        .hero p {
+            font-size: 15px;
+            line-height: 1.5;
+            opacity: 0.95;
+            max-width: 360px;
+            margin: 0 auto 32px auto;
+            font-weight: 400;
+        }
+
+        /* Container de Botões principais */
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            max-width: 360px;
+            margin: 0 auto;
+        }
+
+        .btn-main {
+            flex: 1;
+            padding: 14px 10px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 14px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-whatsapp {
+            background-color: #ffffff;
+            color: #e41334;
+        }
+
+        .btn-services {
+            background-color: #111b21;
+            color: #ffffff;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Seção dos Veículos com Fundo Ondulado */
+        .vehicles-section {
+            background-color: #e41334;
+            position: relative;
+            padding-bottom: 60px;
+            margin-top: -1px;
+        }
+
+        .wave-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 320px, #ffffff 60%, transparent 60.5%);
+            z-index: 1;
+        }
+
+        .vehicles-container {
+            position: relative;
+            z-index: 2;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 0 16px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 4px;
+        }
+
+        .car-img {
+            max-width: 23%;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.12));
+        }
+
+        .car-img.featured {
+            max-width: 28%;
+            z-index: 3;
+        }
+
+        /* Footer Info Icon */
+        .footer-info {
+            position: relative;
+            z-index: 2;
+            text-align: left;
+            padding: 40px 24px 20px 24px;
+            background-color: #ffffff;
+        }
+
+        .info-icon {
+            color: #111b21;
+            font-size: 22px;
+            cursor: pointer;
+            opacity: 0.7;
+        }
+
+        /* Botão Flutuante do WhatsApp */
+        .whatsapp-floating {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background-color: #25d366;
+            color: #ffffff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .whatsapp-floating:hover {
+            transform: scale(1.1);
+        }
+
+        @media (min-width: 480px) {
+            .hero h1 { font-size: 36px; max-width: 450px; }
+            .hero p { font-size: 16px; max-width: 420px; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="topbar">
-    <div class="container topbar-content">
-        <span>📞 Atendimento online</span>
-        <span>🕐 Segunda a sábado • 08:00 às 19:00</span>
-    </div>
-</div>
-
-<header>
-    <div class="container nav">
-        <a href="#inicio" class="logo">AUTO <span>ONLINE</span></a>
-
-        <nav>
-            <a href="#inicio">Início</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#vantagens">Vantagens</a>
-            <a href="#contato">Contato</a>
-        </nav>
-
-        <a class="btn btn-red" href="https://wa.me/5513996354752?text=Olá!%20Gostaria%20de%20entrar%20em%20contato.">
-            Entrar em contato
-        </a>
-    </div>
-</header>
-
-<main>
-
-<section class="hero" id="inicio">
-    <div class="container">
-        <div class="hero-content">
-            <span class="badge">🚗 ATENDIMENTO ONLINE</span>
-
-            <h1>
-                1000 KM grátis no plano
-                <span>Fazemos entrega do veiculo no seu endereço.</span>
-            </h1>
-
-            <p>
-                Conte com um atendimento rápido, direto e personalizado.
-                Os melhores planos e ofertas que cabem no seu bolso.
-            </p>
-
-            <div class="buttons">
-                <a class="btn btn-red" href="https://wa.me/5513996354752?text=Olá!%20Gostaria%20de%20entrar%20em%20contato.">
-                    💬 Entrar em contato
-                </a>
-
-                <a class="btn btn-white" href="#servicos">
-                    Conheça nossos serviços
-                </a>
-            </div>
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <i class="fa-solid fa-car side-car logo-icon"></i>
+            <span class="logo-text">MeuKovi</span>
         </div>
-    </div>
-</section>
+        <a href="#" class="btn-atendente">Falar com atendente <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 11px;"></i></a>
+    </header>
 
-<section id="servicos">
-    <div class="container">
-        <div class="section-title">
-            <div class="over">Nossos serviços</div>
-            <h2>Atendimento pensado para você</h2>
-            <p>
-                Tenha praticidade para tirar dúvidas e receber
-                orientação diretamente com nossa equipe.
-            </p>
-        </div>
-
-        <div class="cards">
-
-            <div class="card">
-                <div class="icon">🚘</div>
-                <h3>Atendimento personalizado</h3>
-                <p>
-                    Receba o veiculo na sua casa.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="icon">⚡</div>
-                <h3>KM GRÁTIS</h3>
-                <p>
-                    Entre em contato online e receba um bônus de 1000km.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="icon">🛡️</div>
-                <h3>Transparência</h3>
-                <p>
-                    Comunicação objetiva e informações claras
-                    durante todo o atendimento.
-                </p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section class="banner" id="vantagens">
-    <div class="container banner-grid">
-
-        <div>
-            <h2>
-                Precisa de atendimento?
-                Estamos prontos para ajudar.
-            </h2>
-
-            <p>
-                Clique no botão abaixo e fale diretamente
-                com nossa equipe pelo WhatsApp.
-            </p>
-
-            <a class="btn btn-white"
-               href="https://wa.me/5513996354752?text=Olá!%20Gostaria%20de%20receber%20atendimento.">
-                💬 Falar pelo WhatsApp
+    <!-- Hero Content -->
+    <section class="hero">
+        <div class="portal-badge">Portal de Atendimento</div>
+        <h1>Seu caminho mais fácil é MeuKovi.</h1>
+        <p>Precisa de ajuda com seu veículo, boleto ou aluguel? Escolha o serviço e fale com nossa equipe pelo WhatsApp de um jeito simples e rápido.</p>
+        
+        <div class="cta-container">
+            <a href="https://wa.me/SEU_NUMERO" target="_blank" class="btn-main btn-whatsapp">
+                <i class="fa-brands fa-whatsapp" style="font-size: 18px;"></i> INICIAR ATENDIMENTO
+            </a>
+            <a href="#servicos" class="btn-main btn-services">
+                Ver serviços <i class="fa-solid fa-arrow-down"></i>
             </a>
         </div>
+    </section>
 
-        <div class="contact-box">
-            <strong>Atendimento direto</strong>
-            <span>
-                Sem formulário e sem necessidade de cadastro.
-                Basta clicar e iniciar a conversa.
-            </span>
+    <!-- Seção de Carros -->
+    <section class="vehicles-section">
+        <div class="wave-bg"></div>
+        <div class="vehicles-container">
+            <img src="https://scontent.fbnu9-1.fna.fbcdn.net/v/t39.30808-6/305212998_510263237769334_1056182205518598525_n.png?stp=dst-jpg_tt6&cstp=mx1000x1000&ctp=s1000x1000&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=Ke4hLgbbntIQ7kNvwGfvOcj&_nc_oc=AdqHVITRt2Z_apT7pKVxUh9hDMCxRVxxMT-g3dfVuBxyw0zP7rpnvia9FIZ0Tapo3aVE6YIei-daS1F2oumOI1Rg&_nc_zt=23&_nc_ht=scontent.fbnu9-1.fna&_nc_gid=jEQaedJ4Gx_iLvIJ7vJT8w&_nc_ss=7b289&oh=00_AQQoig_wvw2_eR8ottxkREze0x0NkZv6NHgIRz4BEBj2EA&oe=6AE9CC7A>
         </div>
+    </section>
 
+    <!-- Rodapé -->
+    <div class="footer-info">
+        <i class="fa-solid fa-circle-info info-icon"></i>
     </div>
-</section>
 
-<section>
-    <div class="container">
-
-        <div class="section-title">
-            <div class="over">Como funciona</div>
-            <h2>É simples entrar em contato</h2>
-            <p>
-                Você pode iniciar seu atendimento em poucos segundos.
-            </p>
-        </div>
-
-        <div class="steps">
-
-            <div class="step">
-                <div class="number">1</div>
-                <h3>Clique no botão</h3>
-                <p>
-                    Escolha qualquer botão de contato disponível
-                    na página.
-                </p>
-            </div>
-
-            <div class="step">
-                <div class="number">2</div>
-                <h3>Abra o WhatsApp</h3>
-                <p>
-                    Você será direcionado diretamente para
-                    nossa conversa.
-                </p>
-            </div>
-
-            <div class="step">
-                <div class="number">3</div>
-                <h3>Fale conosco</h3>
-                <p>
-                    Envie sua dúvida e aguarde o atendimento
-                    da nossa equipe.
-                </p>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<section class="contact" id="contato">
-    <div class="container">
-
-        <div class="contact-inner">
-
-            <h2>Fale conosco</h2>
-
-            <p>
-                Clique no botão abaixo para iniciar seu atendimento
-                diretamente pelo WhatsApp.
-            </p>
-
-            <a class="btn btn-red"
-               href="https://wa.me/5513996354752?text=Olá!%20Gostaria%20de%20entrar%20em%20contato.">
-                💬 Entrar em contato agora
-            </a>
-
-            <span class="phone">
-                WhatsApp: (13) 99635-4752
-            </span>
-
-        </div>
-
-    </div>
-</section>
-
-</main>
-
-<footer>
-    <div class="container footer">
-        <span>© 2026 <strong>Auto Online</strong>. Todos os direitos reservados.</span>
-        <span>Atendimento online</span>
-    </div>
-</footer>
-
-<a class="whatsapp"
-   href="https://wa.me/5513996354752?text=Olá!%20Gostaria%20de%20entrar%20em%20contato."
-   aria-label="Entrar em contato pelo WhatsApp">
-   ☎
-</a>
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/SEU_NUMERO" target="_blank" class="whatsapp-floating" title="Fale Conosco no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
 </body>
 </html>
